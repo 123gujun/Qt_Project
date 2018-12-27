@@ -1,5 +1,7 @@
 #include <QCoreApplication>
 #include <QDebug>
+#include "mycontroler.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
