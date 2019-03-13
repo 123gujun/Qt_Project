@@ -1,24 +1,27 @@
 #ifndef MYCONTROLER_H
 #define MYCONTROLER_H
 
-#include <QObject>
+#include <QThread>
 #include "myworker.h"
 #include<QThread>
 #include<QVector>
 
 
-class MyControler : public QObject
+class MyControler : public QThread
 {
     Q_OBJECT
 public:
     explicit MyControler(QObject *parent = nullptr);
     ~MyControler();
 
+protected:
+    virtual void run();
+
 signals:
 
 public slots:
 private:
-    QVector<QThread> vec;
+
 };
 
 #endif // MYCONTROLER_H

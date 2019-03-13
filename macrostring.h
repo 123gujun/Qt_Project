@@ -4,6 +4,8 @@
 #define FILEPATH  "D:\\WorkSpace\\1w\\"
 #define  THREAD_NUM   10
 #include<QMutex>
+#include<QVector>
 
 extern QMutex mutex;
+
 #endif // MACROSTRING_H

@@ -20,7 +20,7 @@ QByteArray Image_To_Base64(QString ImgPath)
     return fdata.toBase64();
 }
 
-QVector<QString> GetFiles(QString & filepath)
+QVector<QString> GetFiles(QString filepath)
 {
    QDir dir(filepath);
    if (! dir.exists())
