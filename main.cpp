@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 #include <QtCore/QCoreApplication>
 #include "File.h"
 #include <QString>
 
 #include <QTime>
+=======
+#include <QCoreApplication>
+#include <QDebug>
+#include "mycontroler.h"
+#include<QTime>
+>>>>>>> 0da36ae1d41f394f45c78217e1df79530628255a
 
 int main(int argc, char *argv[])
 {
@@ -28,10 +35,19 @@ int main(int argc, char *argv[])
 	}
 	qDebug() << "time/ms = " << time.elapsed();
 
+<<<<<<< HEAD
 
 	QString inpath = QString::fromLocal8Bit("D:\\资源文件\\TestDB\\");
 	QString outpath = QString::fromLocal8Bit("repeat\\");
 	splitRepeatedFile(inpath,outpath);
 #endif
 	return a.exec();
+=======
+    QTime time;
+    time.start();
+
+
+    qDebug() << QObject::tr("鍙戦�佹暟鎹娇鐢ㄧ殑鏃堕棿=") << time.elapsed()/1000<<"s";
+    return a.exec();
+>>>>>>> 0da36ae1d41f394f45c78217e1df79530628255a
 }

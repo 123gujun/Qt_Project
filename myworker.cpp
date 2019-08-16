@@ -8,24 +8,19 @@ QMutex mutex;
 
 QVector<QString>MyWorker::m_fileVec = GetFiles(QString(FILEPATH));
 
-MyWorker::MyWorker(QString&url,QString& filepath,QObject *parent):\
+MyWorker::MyWorker(QString url,QString filepath,QObject *parent):\
  m_url(url),m_filepath(filepath),QObject(parent)
 {
     httpRequest.setRawHeader("Content-Type", "application/json");
     httpRequest.setRawHeader("Accept-Encoding", "gzip, deflate");
     httpRequest.setRawHeader("Accept", "*/*");
 }
-void MyWorker::post()
+void MyWorker::post(QString& filename)
 {
     httpRequest.setUrl(m_url);
-    for(auto&filename:m_fileVec)
-    {
-        mutex.lock();
-        QByteArray array = GetJsonString(QString(FILEPATH) + filename);
-        networkAccessManager.post(httpRequest,array);
-        m_fileVec.removeOne(filename);
-        mutex.unlock();
-    }
+    QByteArray array = GetJsonString(m_filepath + filename);
+    networkAccessManager.post(httpRequest,array);
+
 }
 void MyWorker::get()
 {

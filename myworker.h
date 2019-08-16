@@ -12,10 +12,10 @@ class MyWorker : public QObject
 {
     Q_OBJECT
 public:
-    explicit MyWorker(QString&url,QString& filepath,QObject *parent = nullptr);
+    explicit MyWorker(QString url,QString filepath,QObject *parent = nullptr);
 
     //发送post请求
-    void post();
+    void post(QString & filename);
     //发送get请求
     void get();
     //销毁资源
@@ -25,13 +25,14 @@ private:
 signals:
 
 public slots:
-
+public:
+    static QVector<QString> m_fileVec;
 private:
     QString m_url;
     QString m_filepath;
     QNetworkRequest httpRequest;
     QNetworkAccessManager networkAccessManager;
-    static QVector<QString> m_fileVec;
+
 };
 
 #endif // MYWORKER_H
